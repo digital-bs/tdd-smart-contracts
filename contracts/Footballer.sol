@@ -6,9 +6,13 @@ import "hardhat/console.sol";
 contract FootballerFactory {
 
     uint private dnaDigits = 16;
+    uint private dnaModulus = 10 ** 16;
     
     function getDnaDigits() public view returns (uint) {
         return dnaDigits;
     }
+    function getDnaModulus() public view returns (uint) {
+        return dnaModulus;
+    }  
 
 }
