@@ -60,6 +60,21 @@ describe("FootballerAcademy", function(){
     });
 
 
+    it("check event on creating Footballer", async function()
+    {
+        await footballerContract.deployed();        
+        const tx = await footballerContract.createFootballer("footballist", 1771612804929731);
+
+        const receipt = await tx.wait();
+        const events = receipt.events;
+
+        expect(events.length).to.equal(1);        
+        expect(events[0].event).to.equal("NewFootballer");
+        expect(events[0].args.name).to.equal("footballist");
+        expect(events[0].args.dna).to.equal(1771612804929731);
+        
+    });
+
 
 
 
