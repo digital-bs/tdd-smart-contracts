@@ -49,5 +49,19 @@ describe("FootballerAcademy", function(){
        expect(randomDna).to.equal(2007898401940750);
     });
 
+    it("generate footballer based on func with keccak256", async function()
+    {
+       await footballerContract.deployed();
+       const randomDna = await footballerContract.generateRandomDna("randFootballer");
+       expect(randomDna).to.equal(2007898401940750);
+       await footballerContract.createRandomFootballer("randFootballer");
+       const [randomFootballer] = await footballerContract.getAllFootballers();
+       expect(randomFootballer.name).to.equal("randFootballer");
+       expect(randomFootballer.dna).to.equal(2007898401940750);
+    });
+
+
+
+
 
 });
