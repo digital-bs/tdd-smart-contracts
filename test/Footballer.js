@@ -23,6 +23,11 @@ describe("FootballerAcademy", function(){
         expect(dnaModulus/1000000).to.equal(10 ** 10);
     });
 
+    it("get footballerCount", async function() {        
+        const footballerCount = await footballerContract.getFootballerCount();
+        expect(footballerCount).to.equal(0);
+    });
+
 
 
 });
