@@ -13,7 +13,7 @@ describe("FootballerAcademy", function(){
         footballerContract = await footballerContractFactory.deploy();
     })
 
-    it("get dnaDigits", async function() {        
+    it("get dnaDigits for generating footballers", async function() {        
         const dnaDigits = await footballerContract.getDnaDigits();
         expect(dnaDigits).to.equal(16);
     });
