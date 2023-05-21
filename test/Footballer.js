@@ -45,7 +45,6 @@ describe("FootballerAcademy", function(){
     {
        await footballerContract.deployed();
        const randomDna = await footballerContract.generateRandomDna("randFootballer");
-       console.log(randomDna);
        expect(randomDna).to.equal(2007898401940750);
     });
 

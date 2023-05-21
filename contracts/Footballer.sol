@@ -39,4 +39,9 @@ contract FootballerFactory {
         return rand % dnaModulus;
     }
 
+    function createRandomFootballer(string memory _name) public {
+        uint randDna = generateRandomDna(_name);
+        createFootballer(_name, randDna);
+    }
+
 }
