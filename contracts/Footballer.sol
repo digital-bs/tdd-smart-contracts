@@ -5,6 +5,8 @@ import "hardhat/console.sol";
 
 contract FootballerFactory {
 
+    event NewFootballer(uint footballerId, string name, uint dna);
+
     uint private dnaDigits = 16;
     uint private dnaModulus = 10 ** 16;
     uint private footballerCount;
@@ -28,6 +30,8 @@ contract FootballerFactory {
     function createFootballer(string memory name, uint dna) public {
         footballers.push(Footballer(name, dna));
         footballerCount++;
+        uint id = footballers.length - 1;
+        emit NewFootballer(id, name, dna);
     }
 
     function getAllFootballers() view public returns (Footballer[] memory){
