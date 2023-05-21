@@ -28,6 +28,19 @@ describe("FootballerAcademy", function(){
         expect(footballerCount).to.equal(0);
     });
 
+    it("Each footballer should have name and dna, we can create and get list of footballers", async function () {
+        await footballerContract.deployed();      
+        await footballerContract.createFootballer("number1", 1771);
+        await footballerContract.createFootballer("number2", 5555);
+        const [firstFootballer, secondFootballer] = await footballerContract.getAllFootballers();
+
+        expect(firstFootballer.name).to.equal("number1");
+        expect(firstFootballer.dna).to.equal(1771);
+        expect(secondFootballer.name).to.equal("number2");
+        expect(secondFootballer.dna).to.equal(5555);
+        expect(await footballerContract.getFootballerCount()).to.equal(2);
+    });
+
 
 
 });
