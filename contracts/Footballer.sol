@@ -33,6 +33,10 @@ contract FootballerFactory {
     function getAllFootballers() view public returns (Footballer[] memory){
         return footballers;
     }
-
     
+    function generateRandomDna(string memory _str) public view returns (uint) {
+        uint rand = uint(keccak256(abi.encodePacked(_str)));
+        return rand % dnaModulus;
+    }
+
 }
