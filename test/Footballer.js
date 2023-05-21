@@ -18,6 +18,11 @@ describe("FootballerAcademy", function(){
         expect(dnaDigits).to.equal(16);
     });
 
+    it("get dnaModulus for generating footballers", async function() {        
+        const dnaModulus = await footballerContract.getDnaModulus();
+        expect(dnaModulus/1000000).to.equal(10 ** 10);
+    });
+
 
 
 });
